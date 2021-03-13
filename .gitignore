@@ -7,3 +7,9 @@
 # Documentation here: https://yarnpkg.com/features/zero-installs
 # !/.yarn/cache
 /.pnp.*
+node_modules
+firebase-debug.log
+/data
+/ui-debug.log
+/\.envrc
+/\.firebaserc

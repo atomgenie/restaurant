@@ -1,0 +1,4 @@
+export FIRESTORE_EMULATOR_HOST="localhost:8080"
+export FIREBASE_AUTH_EMULATOR_HOST="localhost:9099"
+export GCLOUD_PROJECT="your-project-id"
+export NEXT_PUBLIC__API_URL="http://localhost:8000"
