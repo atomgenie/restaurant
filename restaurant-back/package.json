@@ -7,6 +7,7 @@
         "start": "NODE_PATH=./build node ./build/index.js"
     },
     "devDependencies": {
+        "@types/jsen": "^0.0.19",
         "@types/node": "^14.14.34",
         "nodemon": "^2.0.7",
         "ts-node": "^9.1.1",
@@ -17,6 +18,7 @@
         "@nestjs/core": "^7.6.14",
         "@nestjs/platform-fastify": "^7.6.14",
         "firebase-admin": "^9.5.0",
+        "jsen": "^0.6.6",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^6.6.6"
     }

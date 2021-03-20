@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import firebase from "firebase/app"
 
 import { Laxios } from "services/laxios"
 import { Subject } from "rxjs"
@@ -24,9 +24,10 @@ class authentificationService {
         this.auth = auth
         this.handleChangeLogState()
 
-        this.loggedRx.subscribe(user => {
+        this.loggedRx.subscribe(async user => {
             if (user !== null) {
                 this.loggedState = LOGGED_STATE.LOGGED
+                Laxios.setToken(await user.getIdToken())
             } else {
                 this.loggedState = LOGGED_STATE.UNLOGGED
             }
@@ -65,8 +66,11 @@ class authentificationService {
                 return false
             case LOGGED_STATE.UNKNOW:
                 return new Promise<boolean>(res => {
-                    const sub = this.loggedRx.subscribe(user => {
+                    const sub = this.loggedRx.subscribe(async user => {
                         sub.unsubscribe()
+                        if (user !== null) {
+                            Laxios.setToken(await user.getIdToken())
+                        }
                         res(user !== null)
                     })
                 })

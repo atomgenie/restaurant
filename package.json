@@ -10,12 +10,14 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^4.17.0",
         "@typescript-eslint/parser": "^4.17.0",
+        "concurrently": "^6.0.0",
         "eslint": "^7.22.0",
         "firebase-tools": "^9.6.1",
         "prettier": "^2.2.1",
         "typescript": "^4.2.3"
     },
     "scripts": {
+        "dev": "concurrently 'yarn start:emulators' 'cd restaurant-front && yarn dev' 'cd restaurant-back && yarn dev'",
         "start:emulators": "firebase emulators:start --import ./data --export-on-exit"
     }
 }

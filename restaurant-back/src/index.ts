@@ -7,6 +7,8 @@ const bootstrap = async () => {
         ServerModule,
         new FastifyAdapter(),
     )
+
+    server.enableCors()
     await server.listen(8000, "0.0.0.0")
 }
 

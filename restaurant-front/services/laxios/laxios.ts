@@ -20,7 +20,7 @@ class LaxiosClass {
 
     public instance(): AxiosInstance {
         if (!this.token) {
-            throw Error("Not looged")
+            throw Error("Not logged")
         }
 
         return axios.create({
@@ -29,6 +29,11 @@ class LaxiosClass {
                 Authorization: `Bearer ${this.token}`,
             },
         })
+    }
+
+    public fetcher = async (url: string) => {
+        const data = await this.instance().get(url)
+        return data.data
     }
 }
 
